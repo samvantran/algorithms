@@ -16,8 +16,12 @@ public class WeightedQuickUnionUF {
 
   public WeightedQuickUnionUF(int N) {
     id = new int[N];
-    for( int i = 0; i < N; i++ )
+    size = new int[N];
+
+    for( int i = 0; i < N; i++ ) {
       id[i] = i;
+      size[i] = 1;
+    }
   }
 
   private int root(int i) {
@@ -46,5 +50,30 @@ public class WeightedQuickUnionUF {
       id[j] = i;
       size[i] += size[j];
     }
+  }
+
+  @Override
+  public String toString() {
+    String array = "";
+    for( int i = 0; i < id.length; i++ )
+      array += id[i] + " ";
+
+    return array;
+  }
+
+  public static void main(String[] args) {
+    WeightedQuickUnionUF wqu = new WeightedQuickUnionUF(10);
+
+    wqu.union(0,5);
+    wqu.union(7,1);
+    wqu.union(3,4);
+    wqu.union(2,0);
+    wqu.union(7,4);
+    wqu.union(9,0);
+    wqu.union(8,0);
+    wqu.union(1,8);
+    wqu.union(0,6);
+
+    System.out.println(wqu.toString());
   }
 }
