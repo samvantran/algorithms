@@ -37,4 +37,13 @@ public class QuickUnionUF {
 
     id[i] = j;
   }
+
+  @Override
+  public String toString() {
+    String array = "";
+    for (int i = 0; i < id.length; i++)
+      array += id[i] + " ";
+
+    return array;
+  }
 }
