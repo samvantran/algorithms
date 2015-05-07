@@ -1,4 +1,4 @@
-package UnionFind;
+package Week1;
 
 /**
  * Created by svt on 4/18/15.
