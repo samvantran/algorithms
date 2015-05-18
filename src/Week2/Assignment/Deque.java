@@ -1,4 +1,4 @@
-package Week2;
+package Week2.Assignment;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -28,7 +28,7 @@ import java.util.NoSuchElementException;
  */
 public class Deque<Item> implements Iterable<Item> {
 
-  private Node first, last, prev;
+  private Node first, last;
   private int size = 0;
 
   // construct an empty deque
@@ -116,11 +116,7 @@ public class Deque<Item> implements Iterable<Item> {
     return oldLast.item;
   }
 
-  // return an iterator over items in order from front to end
-  public Iterator<Item> iterator() {
-    return new ListIterator();
-  }
-
+  // unit testing
   public static void main(String[] args) {
     Deque deque = new Deque();
     int a = 10;
@@ -147,8 +143,12 @@ public class Deque<Item> implements Iterable<Item> {
     deque.removeLast();
 
     deque.forEach(item -> System.out.println(item));
+  }
 
-  }  // unit testing
+  // return an iterator over items in order from front to end
+  public Iterator<Item> iterator() {
+    return new ListIterator();
+  }
 
   private class Node {
     Item item;
